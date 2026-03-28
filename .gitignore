@@ -11,3 +11,11 @@ rust/target/
 *.cmo
 *.o
 ocaml/humanlang
+
+# Zig
+zig/.zig-cache/
+zig/zig-out/
+
+# Haskell
+*.hi
+haskell/humanlang
