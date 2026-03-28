@@ -107,9 +107,9 @@ See [SPEC.md](SPEC.md) for the complete grammar and semantics.
 
 ## Why?
 
-Drew Breunig created [whenwords](https://github.com/dbreunig/whenwords) — a software library with no code. A spec and tests that any AI agent can implement in any language. Brilliant.
+Ghost libraries — software distributed as specifications rather than code — are gaining traction. A spec and tests that any AI agent can implement in any language. But a library is small.
 
-I wanted to push the idea further. If a spec can replace a library, can it replace a compiler?
+What if a spec could replace a compiler?
 
 The answer is yes.
 
