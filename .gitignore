@@ -1,0 +1,13 @@
+# Kotlin
+*.jar
+*.class
+
+# Rust
+rust/target/
+
+# OCaml
+*.cmi
+*.cmx
+*.cmo
+*.o
+ocaml/humanlang
