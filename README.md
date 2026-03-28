@@ -72,7 +72,7 @@ print call factorial with 10
 
 ## Implementations
 
-Five AI-generated interpreters, each built from nothing but `SPEC.md` and `tests.yaml`. Five paradigms. One spec. All passing 86/86 tests.
+AI-generated interpreters, each built from nothing but `SPEC.md` and `tests.yaml`. Different paradigms. One spec. All passing 86/86 tests.
 
 | Language | Paradigm | Lines | Files | Build |
 |----------|----------|-------|-------|-------|
