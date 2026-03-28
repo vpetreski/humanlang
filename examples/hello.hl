@@ -1,0 +1,4 @@
+-- Hello World in humanlang
+-- The simplest program: just say hello.
+
+print "Hello, World!"

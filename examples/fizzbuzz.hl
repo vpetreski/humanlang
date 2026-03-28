@@ -1,0 +1,12 @@
+-- FizzBuzz in humanlang
+-- The classic programming challenge, written in English.
+
+for n from 1 to 100:
+    if n modulo 15 is equal to 0:
+        print "FizzBuzz"
+    otherwise if n modulo 3 is equal to 0:
+        print "Fizz"
+    otherwise if n modulo 5 is equal to 0:
+        print "Buzz"
+    otherwise:
+        print n

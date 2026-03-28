@@ -1,0 +1,19 @@
+-- Greeting Program in humanlang
+-- Functions, lists, and string operations.
+
+define greet with name and style:
+    if style is equal to "formal":
+        return "Good day, " joined with name joined with "."
+    otherwise if style is equal to "casual":
+        return "Hey " joined with name joined with "!"
+    otherwise:
+        return "Hello, " joined with name joined with "."
+
+set guests to ["Alice", "Bob", "Charlie"]
+set styles to ["formal", "casual", "default"]
+
+for n from 0 to 2:
+    set name to item n of guests
+    set style to item n of styles
+    set message to call greet with name and style
+    print message

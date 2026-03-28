@@ -1,0 +1,20 @@
+-- Calculator in humanlang
+-- A simple calculator using functions and conditionals.
+
+define calculate with a and op and b:
+    if op is equal to "add":
+        return a plus b
+    otherwise if op is equal to "subtract":
+        return a minus b
+    otherwise if op is equal to "multiply":
+        return a times b
+    otherwise if op is equal to "divide":
+        if b is equal to 0:
+            print "Error: cannot divide by zero"
+            return nothing
+        return a divided by b
+
+print "10 add 5 = " joined with (call calculate with 10 and "add" and 5)
+print "20 subtract 8 = " joined with (call calculate with 20 and "subtract" and 8)
+print "6 multiply 7 = " joined with (call calculate with 6 and "multiply" and 7)
+print "15 divide 4 = " joined with (call calculate with 15 and "divide" and 4)

@@ -1,0 +1,13 @@
+-- Fibonacci Sequence in humanlang
+-- Calculate and print the first 20 Fibonacci numbers.
+
+set a to 0
+set b to 1
+set count to 0
+
+while count is less than 20:
+    print a
+    set temp to a plus b
+    set a to b
+    set b to temp
+    set count to count plus 1

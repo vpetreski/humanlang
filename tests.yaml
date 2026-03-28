@@ -1,0 +1,732 @@
+version: "0.1.0"
+
+# humanlang test suite
+# Each test case defines a program and its expected stdout output.
+# All tests must pass for a conforming implementation.
+
+tests:
+
+  # === PRINTING ===
+
+  - name: "hello world"
+    program: |
+      print "Hello, World!"
+    output: |
+      Hello, World!
+
+  - name: "print number"
+    program: |
+      print 42
+    output: |
+      42
+
+  - name: "print decimal"
+    program: |
+      print 3.14
+    output: |
+      3.14
+
+  - name: "print boolean"
+    program: |
+      print true
+      print false
+    output: |
+      true
+      false
+
+  - name: "print nothing"
+    program: |
+      print nothing
+    output: |
+      nothing
+
+  - name: "print list"
+    program: |
+      print [1, 2, 3]
+    output: |
+      [1, 2, 3]
+
+  - name: "print empty string"
+    program: |
+      print ""
+    output: |
+
+
+  # === VARIABLES ===
+
+  - name: "set and print variable"
+    program: |
+      set x to 42
+      print x
+    output: |
+      42
+
+  - name: "set string variable"
+    program: |
+      set name to "World"
+      print name
+    output: |
+      World
+
+  - name: "reassign variable"
+    program: |
+      set x to 10
+      set x to 20
+      print x
+    output: |
+      20
+
+  - name: "reassign to different type"
+    program: |
+      set x to 42
+      set x to "hello"
+      print x
+    output: |
+      hello
+
+  - name: "multiple variables"
+    program: |
+      set a to 1
+      set b to 2
+      set c to 3
+      print a
+      print b
+      print c
+    output: |
+      1
+      2
+      3
+
+  # === ARITHMETIC ===
+
+  - name: "addition"
+    program: |
+      print 10 plus 5
+    output: |
+      15
+
+  - name: "subtraction"
+    program: |
+      print 10 minus 3
+    output: |
+      7
+
+  - name: "multiplication"
+    program: |
+      print 4 times 6
+    output: |
+      24
+
+  - name: "division exact"
+    program: |
+      print 20 divided by 4
+    output: |
+      5
+
+  - name: "division decimal"
+    program: |
+      print 10 divided by 3
+    output: |
+      3.333333
+
+  - name: "modulo"
+    program: |
+      print 17 modulo 5
+    output: |
+      2
+
+  - name: "arithmetic with variables"
+    program: |
+      set x to 10
+      set y to 3
+      print x plus y
+      print x minus y
+      print x times y
+    output: |
+      13
+      7
+      30
+
+  - name: "operator precedence"
+    program: |
+      print 2 plus 3 times 4
+    output: |
+      14
+
+  - name: "parentheses override precedence"
+    program: |
+      print (2 plus 3) times 4
+    output: |
+      20
+
+  - name: "negative numbers"
+    program: |
+      set x to negative 5
+      print x
+      print x plus 10
+    output: |
+      -5
+      5
+
+  - name: "chained arithmetic"
+    program: |
+      print 100 minus 20 minus 30
+    output: |
+      50
+
+  - name: "integer result from division"
+    program: |
+      print 10.0 divided by 2.0
+    output: |
+      5
+
+  # === STRINGS ===
+
+  - name: "string concatenation"
+    program: |
+      print "Hello" joined with " " joined with "World"
+    output: |
+      Hello World
+
+  - name: "join string with number"
+    program: |
+      print "The answer is " joined with 42
+    output: |
+      The answer is 42
+
+  - name: "uppercase"
+    program: |
+      print uppercase of "hello"
+    output: |
+      HELLO
+
+  - name: "lowercase"
+    program: |
+      print lowercase of "HELLO"
+    output: |
+      hello
+
+  - name: "string length"
+    program: |
+      print length of "hello"
+    output: |
+      5
+
+  - name: "string contains true"
+    program: |
+      print "hello world" contains "world"
+    output: |
+      true
+
+  - name: "string contains false"
+    program: |
+      print "hello" contains "xyz"
+    output: |
+      false
+
+  - name: "string slice"
+    program: |
+      print slice of "hello" from 1 to 4
+    output: |
+      ell
+
+  - name: "escape sequences"
+    program: |
+      print "line1\nline2"
+    output: |
+      line1
+      line2
+
+  # === COMPARISONS ===
+
+  - name: "equal true"
+    program: |
+      print 5 is equal to 5
+    output: |
+      true
+
+  - name: "equal false"
+    program: |
+      print 5 is equal to 6
+    output: |
+      false
+
+  - name: "not equal"
+    program: |
+      print 5 is not equal to 6
+    output: |
+      true
+
+  - name: "greater than"
+    program: |
+      print 10 is greater than 5
+    output: |
+      true
+
+  - name: "less than"
+    program: |
+      print 3 is less than 7
+    output: |
+      true
+
+  - name: "at least (equal)"
+    program: |
+      print 5 is at least 5
+    output: |
+      true
+
+  - name: "at least (greater)"
+    program: |
+      print 6 is at least 5
+    output: |
+      true
+
+  - name: "at most"
+    program: |
+      print 5 is at most 10
+    output: |
+      true
+
+  - name: "string equality"
+    program: |
+      print "hello" is equal to "hello"
+    output: |
+      true
+
+  # === LOGICAL OPERATORS ===
+
+  - name: "and true"
+    program: |
+      print true and true
+    output: |
+      true
+
+  - name: "and false"
+    program: |
+      print true and false
+    output: |
+      false
+
+  - name: "or"
+    program: |
+      print false or true
+    output: |
+      true
+
+  - name: "not"
+    program: |
+      print not false
+    output: |
+      true
+
+  - name: "complex logical"
+    program: |
+      print true and not false or false
+    output: |
+      true
+
+  # === CONDITIONALS ===
+
+  - name: "simple if true"
+    program: |
+      set x to 10
+      if x is greater than 5:
+          print "big"
+    output: |
+      big
+
+  - name: "simple if false"
+    program: |
+      set x to 3
+      if x is greater than 5:
+          print "big"
+    output: |
+
+  - name: "if otherwise"
+    program: |
+      set x to 3
+      if x is greater than 5:
+          print "big"
+      otherwise:
+          print "small"
+    output: |
+      small
+
+  - name: "if otherwise if otherwise"
+    program: |
+      set x to 5
+      if x is greater than 5:
+          print "big"
+      otherwise if x is equal to 5:
+          print "five"
+      otherwise:
+          print "small"
+    output: |
+      five
+
+  - name: "nested if"
+    program: |
+      set x to 10
+      set y to 20
+      if x is greater than 5:
+          if y is greater than 15:
+              print "both big"
+    output: |
+      both big
+
+  - name: "if with logical operators"
+    program: |
+      set x to 10
+      set y to 20
+      if x is greater than 5 and y is less than 25:
+          print "yes"
+    output: |
+      yes
+
+  # === LOOPS ===
+
+  - name: "repeat n times"
+    program: |
+      repeat 3 times:
+          print "hi"
+    output: |
+      hi
+      hi
+      hi
+
+  - name: "for each in list"
+    program: |
+      set items to [10, 20, 30]
+      for each item in items:
+          print item
+    output: |
+      10
+      20
+      30
+
+  - name: "for from to"
+    program: |
+      for n from 1 to 5:
+          print n
+    output: |
+      1
+      2
+      3
+      4
+      5
+
+  - name: "while loop"
+    program: |
+      set x to 3
+      while x is greater than 0:
+          print x
+          set x to x minus 1
+    output: |
+      3
+      2
+      1
+
+  - name: "stop in loop"
+    program: |
+      for n from 1 to 10:
+          if n is equal to 4:
+              stop
+          print n
+    output: |
+      1
+      2
+      3
+
+  - name: "skip in loop"
+    program: |
+      for n from 1 to 5:
+          if n is equal to 3:
+              skip
+          print n
+    output: |
+      1
+      2
+      4
+      5
+
+  - name: "nested loops"
+    program: |
+      for i from 1 to 3:
+          for j from 1 to 3:
+              if i is equal to j:
+                  print i
+    output: |
+      1
+      2
+      3
+
+  - name: "repeat zero times"
+    program: |
+      repeat 0 times:
+          print "never"
+      print "done"
+    output: |
+      done
+
+  # === FUNCTIONS ===
+
+  - name: "simple function"
+    program: |
+      define greet with name:
+          print "Hello, " joined with name joined with "!"
+      call greet with "World"
+    output: |
+      Hello, World!
+
+  - name: "function with return"
+    program: |
+      define square with n:
+          return n times n
+      print call square with 5
+    output: |
+      25
+
+  - name: "function multiple params"
+    program: |
+      define add with a and b:
+          return a plus b
+      print call add with 3 and 7
+    output: |
+      10
+
+  - name: "function no params"
+    program: |
+      define say_hi:
+          print "Hi!"
+      call say_hi
+    output: |
+      Hi!
+
+  - name: "function returns nothing by default"
+    program: |
+      define do_nothing:
+          set x to 1
+      print call do_nothing
+    output: |
+      nothing
+
+  - name: "recursive function"
+    program: |
+      define factorial with n:
+          if n is at most 1:
+              return 1
+          return n times (call factorial with (n minus 1))
+      print call factorial with 5
+    output: |
+      120
+
+  - name: "function as expression"
+    program: |
+      define double with n:
+          return n times 2
+      set result to (call double with 5) plus 10
+      print result
+    output: |
+      20
+
+  - name: "multiple function calls"
+    program: |
+      define max with a and b:
+          if a is greater than b:
+              return a
+          return b
+      print call max with 10 and 20
+      print call max with 50 and 30
+    output: |
+      20
+      50
+
+  # === LISTS ===
+
+  - name: "first and last"
+    program: |
+      set items to [10, 20, 30]
+      print first of items
+      print last of items
+    output: |
+      10
+      30
+
+  - name: "list length"
+    program: |
+      print length of [1, 2, 3, 4, 5]
+    output: |
+      5
+
+  - name: "list contains"
+    program: |
+      set items to [1, 2, 3]
+      print items contains 2
+      print items contains 5
+    output: |
+      true
+      false
+
+  - name: "append to list"
+    program: |
+      set items to [1, 2, 3]
+      append 4 to items
+      print items
+    output: |
+      [1, 2, 3, 4]
+
+  - name: "list item access"
+    program: |
+      set items to ["a", "b", "c"]
+      print item 0 of items
+      print item 2 of items
+    output: |
+      a
+      c
+
+  - name: "list slice"
+    program: |
+      set items to [10, 20, 30, 40, 50]
+      print slice of items from 1 to 4
+    output: |
+      [20, 30, 40]
+
+  - name: "empty list"
+    program: |
+      set items to []
+      print length of items
+      append 1 to items
+      print items
+    output: |
+      0
+      [1]
+
+  - name: "iterate and accumulate"
+    program: |
+      set numbers to [1, 2, 3, 4, 5]
+      set total to 0
+      for each n in numbers:
+          set total to total plus n
+      print total
+    output: |
+      15
+
+  # === TYPE CONVERSION ===
+
+  - name: "string to number"
+    program: |
+      set x to "42" as number
+      print x plus 8
+    output: |
+      50
+
+  - name: "number to string"
+    program: |
+      set s to 42 as string
+      print "Value: " joined with s
+    output: |
+      Value: 42
+
+  - name: "truthiness conversions"
+    program: |
+      print 0 as boolean
+      print 1 as boolean
+      print "" as boolean
+      print "hello" as boolean
+      print nothing as boolean
+    output: |
+      false
+      true
+      false
+      true
+      false
+
+  - name: "empty list as boolean"
+    program: |
+      print [] as boolean
+      print [1] as boolean
+    output: |
+      false
+      true
+
+  # === COMBINED / COMPLEX ===
+
+  - name: "fizzbuzz 1 to 15"
+    program: |
+      for n from 1 to 15:
+          if n modulo 15 is equal to 0:
+              print "FizzBuzz"
+          otherwise if n modulo 3 is equal to 0:
+              print "Fizz"
+          otherwise if n modulo 5 is equal to 0:
+              print "Buzz"
+          otherwise:
+              print n
+    output: |
+      1
+      2
+      Fizz
+      4
+      Buzz
+      Fizz
+      7
+      8
+      Fizz
+      Buzz
+      11
+      Fizz
+      13
+      14
+      FizzBuzz
+
+  - name: "fibonacci first 10"
+    program: |
+      set a to 0
+      set b to 1
+      set results to []
+      repeat 10 times:
+          append a to results
+          set temp to a plus b
+          set a to b
+          set b to temp
+      print results
+    output: |
+      [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+
+  - name: "find maximum in list"
+    program: |
+      set numbers to [34, 12, 89, 3, 56, 7, 45]
+      set max to first of numbers
+      for each n in numbers:
+          if n is greater than max:
+              set max to n
+      print max
+    output: |
+      89
+
+  - name: "string building"
+    program: |
+      set words to ["Human", "language", "is", "the", "best", "programming", "language"]
+      set sentence to ""
+      for each word in words:
+          if length of sentence is greater than 0:
+              set sentence to sentence joined with " "
+          set sentence to sentence joined with word
+      print sentence
+    output: |
+      Human language is the best programming language
+
+  - name: "nested function calls with logic"
+    program: |
+      define is_even with n:
+          return n modulo 2 is equal to 0
+      define filter_even with numbers:
+          set result to []
+          for each n in numbers:
+              if call is_even with n:
+                  append n to result
+          return result
+      set evens to call filter_even with [1, 2, 3, 4, 5, 6, 7, 8]
+      print evens
+    output: |
+      [2, 4, 6, 8]
