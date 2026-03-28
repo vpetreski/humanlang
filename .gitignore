@@ -19,3 +19,7 @@ zig/zig-out/
 # Haskell
 *.hi
 haskell/humanlang
+
+# Assembly
+asm/humanlang
+asm/humanlang.dSYM/
