@@ -23,3 +23,7 @@ haskell/humanlang
 # Assembly
 asm/humanlang
 asm/humanlang.dSYM/
+
+# TypeScript
+typescript/node_modules/
+__pycache__/

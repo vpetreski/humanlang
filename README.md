@@ -62,6 +62,8 @@ print call factorial with 10
 | [tests.yaml](tests.yaml) | 86 language-agnostic test cases |
 | [INSTALL.md](INSTALL.md) | Instructions for building humanlang (a prompt) |
 | [examples/](examples/) | Example programs in `.hl` format |
+| [python/](python/) | AI-generated Python interpreter (1,465 lines) |
+| [typescript/](typescript/) | AI-generated TypeScript interpreter (2,188 lines) |
 | [kotlin/](kotlin/) | AI-generated Kotlin interpreter (1,332 lines) |
 | [rust/](rust/) | AI-generated Rust interpreter (2,103 lines) |
 | [ocaml/](ocaml/) | AI-generated OCaml interpreter (1,429 lines) |
@@ -77,6 +79,8 @@ AI-generated interpreters, each built from nothing but `SPEC.md` and `tests.yaml
 
 | Language | Paradigm | Lines | Files | Build |
 |----------|----------|-------|-------|-------|
+| **[Python](python/)** | Dynamic / Scripting | 1,465 | Single file | `python3 humanlang.py` |
+| **[TypeScript](typescript/)** | Typed JS / Node.js | 2,188 | Single file | `npx tsx humanlang.ts` |
 | **[Kotlin](kotlin/)** | JVM / OOP+FP | 1,332 | Single file | `kotlinc humanlang.kt -include-runtime -d humanlang.jar` |
 | **[Rust](rust/)** | Systems / Ownership | 2,103 | 6 modules | `cargo build --release` |
 | **[OCaml](ocaml/)** | Functional / ADTs | 1,429 | Single file | `ocamlopt -o humanlang humanlang.ml` |
@@ -87,6 +91,12 @@ AI-generated interpreters, each built from nothing but `SPEC.md` and `tests.yaml
 ### Run
 
 ```bash
+# Python
+cd python && python3 humanlang.py ../examples/fizzbuzz.hl
+
+# TypeScript
+cd typescript && npm install && npx tsx humanlang.ts ../examples/fizzbuzz.hl
+
 # Kotlin
 cd kotlin && kotlinc humanlang.kt -include-runtime -d humanlang.jar
 java -jar humanlang.jar ../examples/fizzbuzz.hl
@@ -117,6 +127,8 @@ cd asm && cc -o humanlang humanlang.s
 Each implementation includes a `run_tests.sh` that validates all 86 test cases:
 
 ```bash
+cd python  && bash run_tests.sh   # 86/86 ✓
+cd typescript && bash run_tests.sh # 86/86 ✓
 cd kotlin  && bash run_tests.sh   # 86/86 ✓
 cd rust    && bash run_tests.sh   # 86/86 ✓
 cd ocaml   && bash run_tests.sh   # 86/86 ✓

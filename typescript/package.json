@@ -1,0 +1,14 @@
+{
+  "name": "humanlang-typescript",
+  "version": "0.1.0",
+  "description": "humanlang interpreter in TypeScript",
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "start": "npx tsx humanlang.ts"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "tsx": "^4.7.0"
+  }
+}
